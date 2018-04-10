@@ -49,6 +49,11 @@ for (com in comunidades) {
 
 # Produzir uma rede para cada comunidade....
 
+############################################
+# Rastrear os nomes nas matrizes em respondentes e parentes...
+
+############################################
+
 #########################################################
 # Montando apenas com o nome
 
