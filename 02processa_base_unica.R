@@ -27,16 +27,27 @@ names(dados)[rodadas]
 indicacoes = c()
 for (row in 1:nrow(dados)) {
   for (col in rodadas) {
-    completo = paste(dados[row,col], dados[row, col+1], dados[row, col+2])
+    completo = paste(dados[row,col])
     indicacoes = c(indicacoes, completo)
   }
 }
 
 tabela = freq(indicacoes, plot = F)
 tabela = as.matrix(tabela)
-tabela[1:30,]
+tabela
 #View(tabela)
 ## Não funcionou
+
+# Printando a tabela por comunidade
+freq(dados$comunidade, plot=F)
+comunidades = as.factor(dados$comunidade)
+comunidades = levels(comunidades)
+
+for (com in comunidades) {
+  print(freq(indicacoes[dados$comunidade == com]), plot=F)
+}
+
+# Produzir uma rede para cada comunidade....
 
 #########################################################
 # Montando apenas com o nome
