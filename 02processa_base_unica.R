@@ -42,12 +42,9 @@ tabela
 freq(dados$comunidade, plot=F)
 comunidades = as.factor(dados$comunidade)
 comunidades = levels(comunidades)
+length(comunidades)
 
-for (com in comunidades) {
-  print(freq(indicacoes[dados$comunidade == com]), plot=F)
-}
-
-# Produzir uma rede para cada comunidade....
+freq(indicacoes[dados$comunidade == comunidades[4]], plot=F)
 
 ############################################
 # Rastrear os nomes nas matrizes em respondentes e parentes...
