@@ -27,16 +27,29 @@ names(dados)[rodadas]
 indicacoes = c()
 for (row in 1:nrow(dados)) {
   for (col in rodadas) {
-    completo = paste(dados[row,col], dados[row, col+1], dados[row, col+2])
+    completo = paste(dados[row,col])
     indicacoes = c(indicacoes, completo)
   }
 }
 
 tabela = freq(indicacoes, plot = F)
 tabela = as.matrix(tabela)
-tabela[1:30,]
+tabela
 #View(tabela)
 ## Não funcionou
+
+# Printando a tabela por comunidade
+freq(dados$comunidade, plot=F)
+comunidades = as.factor(dados$comunidade)
+comunidades = levels(comunidades)
+length(comunidades)
+
+freq(indicacoes[dados$comunidade == comunidades[4]], plot=F)
+
+############################################
+# Rastrear os nomes nas matrizes em respondentes e parentes...
+
+############################################
 
 #########################################################
 # Montando apenas com o nome
