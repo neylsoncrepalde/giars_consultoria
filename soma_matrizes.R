@@ -7,11 +7,13 @@
 
 # Instala os pacotes necessários se eles já não estiverem instalados
 if ('readxl' %in% installed.packages() == F) install.packages('readxl')
+if ('readr' %in% installed.packages() == F) install.packages('readr')
 if ('igraph' %in% installed.packages() == F) install.packages('igraph')
 if ('blockmodeling' %in% installed.packages() == F) install.packages('blockmodeling')
 
 # Carrega os pacotes
 library(readxl)
+library(readr)
 library(igraph)
 library(blockmodeling)
 
@@ -153,3 +155,10 @@ savenetwork(as.matrix(get.adjacency(Q3)), 'pescarte_questao3.net')
 savenetwork(as.matrix(get.adjacency(Q4_1)), 'pescarte_questao4_1.net')
 savenetwork(as.matrix(get.adjacency(Q4_5)), 'pescarte_questao4_5.net')
 savenetwork(as.matrix(get.adjacency(Q4_simples)), 'pescarte_questao4_simples.net')
+
+#write_csv(as.data.frame(as.matrix(get.adjacency(Q1))), 'pescarte_questao1.csv')
+#write_csv(as.matrix(get.adjacency(Q2)), 'pescarte_questao2.csv')
+#write_csv(as.matrix(get.adjacency(Q3)), 'pescarte_questao3.csv')
+#write_csv(as.matrix(get.adjacency(Q4_1)), 'pescarte_questao4_1.csv')
+#write_csv(as.matrix(get.adjacency(Q4_5)), 'pescarte_questao4_5.csv')
+#write_csv(as.matrix(get.adjacency(Q4_simples)), 'pescarte_questao4_simples.csv')
