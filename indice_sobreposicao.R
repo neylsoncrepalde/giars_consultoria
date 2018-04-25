@@ -25,10 +25,56 @@ which(M4_5 > 1) # matriz binária
 # Produzindo o índice com a seguinte ideia:
 # Laços sobrepostos (soma = 2) sobre laços existentes (soma > 0)
 #----------------------------------
+index_por_matriz = c()
+nomes = c('1x2', '1x3', '2x3', '3x4', '3x5', '4x5')
 # Somando as duas primeiras matrizes
 
 um_dois = M4_1 + M4_2
 lacos_total = length(which(um_dois > 0))
 lacos_sobrepostos = length(which(um_dois > 1))
 indice_sobreposicao = lacos_sobrepostos / lacos_total
+index_por_matriz = c(index_por_matriz, indice_sobreposicao)
+
+
+um_tres = M4_1 + M4_3
+lacos_total = length(which(um_tres > 0))
+lacos_sobrepostos = length(which(um_tres > 1))
+indice_sobreposicao = lacos_sobrepostos / lacos_total
+index_por_matriz = c(index_por_matriz, indice_sobreposicao)
+
+dois_tres = M4_2 + M4_3
+lacos_total = length(which(dois_tres > 0))
+lacos_sobrepostos = length(which(dois_tres > 1))
+indice_sobreposicao = lacos_sobrepostos / lacos_total
+index_por_matriz = c(index_por_matriz, indice_sobreposicao)
+
+tres_quatro = M4_3 + M4_4
+lacos_total = length(which(tres_quatro > 0))
+lacos_sobrepostos = length(which(tres_quatro > 1))
+indice_sobreposicao = lacos_sobrepostos / lacos_total
+index_por_matriz = c(index_por_matriz, indice_sobreposicao)
+
+tres_cinco = M4_3 + M4_5
+lacos_total = length(which(tres_cinco > 0))
+lacos_sobrepostos = length(which(tres_cinco > 1))
+indice_sobreposicao = lacos_sobrepostos / lacos_total
+index_por_matriz = c(index_por_matriz, indice_sobreposicao)
+
+quatro_cinco = M4_4 + M4_5
+lacos_total = length(which(quatro_cinco > 0))
+lacos_sobrepostos = length(which(quatro_cinco > 1))
+indice_sobreposicao = lacos_sobrepostos / lacos_total
+index_por_matriz = c(index_por_matriz, indice_sobreposicao)
+
+############################################################
+# Calculando através das densidades
+
+d41 = graph.density(Q4_1)
+d42 = graph.density(Q4_2)
+d43 = graph.density(Q4_3)
+d44 = graph.density(Q4_4)
+d45 = graph.density(Q4_5)
+
+
+
 
