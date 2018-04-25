@@ -27,10 +27,10 @@ l = lapply(arquivos, read_graph, format = 'pajek')
 
 # atribui os nomes corretos
 manha = read_xlsx('SOMA MATRIZES MANHÃ.xlsx')
-View(cbind(V(l[[3]])$name, names(manha)[-1])) # São iguais
+#View(cbind(V(l[[3]])$name, names(manha)[-1])) # São iguais
 
 tarde = read_xlsx('SOMA DAS MATRIZES TARDE.xlsx')
-View(cbind(V(l[[10]])$name, names(tarde)[-1])) # São iguais
+#View(cbind(V(l[[10]])$name, names(tarde)[-1])) # São iguais
 
 # Atribui nomes da manhã às matrizes da manhã
 for (g in 1:9) {
@@ -118,6 +118,51 @@ E(Q4_1)$weight = peso
 # Confere a matriz de adjacência com pesos
 View(as.matrix(get.adjacency(Q4_1, attr = 'weight')))
 
+#--------------------------------
+Q4_2 = l[[5]] %u% l[[14]]
+plot(Q4_2, vertex.label = NA, vertex.size=5)
+
+peso1 = E(Q4_2)$weight_1
+peso2 = E(Q4_2)$weight_2
+peso1[is.na(peso1)] = 0
+peso2[is.na(peso2)] = 0
+peso = peso1 + peso2
+peso
+E(Q4_2)$weight = peso
+
+# Confere a matriz de adjacência com pesos
+View(as.matrix(get.adjacency(Q4_2, attr = 'weight')))
+
+#--------------------------------
+Q4_3 = l[[6]] %u% l[[15]]
+plot(Q4_3, vertex.label = NA, vertex.size=5)
+
+peso1 = E(Q4_3)$weight_1
+peso2 = E(Q4_3)$weight_2
+peso1[is.na(peso1)] = 0
+peso2[is.na(peso2)] = 0
+peso = peso1 + peso2
+peso
+E(Q4_3)$weight = peso
+
+# Confere a matriz de adjacência com pesos
+View(as.matrix(get.adjacency(Q4_3, attr = 'weight')))
+
+#--------------------------------
+Q4_4 = l[[7]] %u% l[[16]]
+plot(Q4_4, vertex.label = NA, vertex.size=5)
+
+peso1 = E(Q4_4)$weight_1
+peso2 = E(Q4_4)$weight_2
+peso1[is.na(peso1)] = 0
+peso2[is.na(peso2)] = 0
+peso = peso1 + peso2
+peso
+E(Q4_4)$weight = peso
+
+# Confere a matriz de adjacência com pesos
+View(as.matrix(get.adjacency(Q4_4, attr = 'weight')))
+
 #---------------------------------------------
 Q4_5 = l[[8]] %u% l[[17]]
 plot(Q4_5, vertex.label = NA, vertex.size=5)
@@ -149,12 +194,25 @@ E(Q4_simples)$weight = peso
 View(as.matrix(get.adjacency(Q4_simples, attr = 'weight')))
 
 # Exporta matrizes
-savenetwork(as.matrix(get.adjacency(Q1)), 'pescarte_questao1.net')
-savenetwork(as.matrix(get.adjacency(Q2)), 'pescarte_questao2.net')
-savenetwork(as.matrix(get.adjacency(Q3)), 'pescarte_questao3.net')
-savenetwork(as.matrix(get.adjacency(Q4_1)), 'pescarte_questao4_1.net')
-savenetwork(as.matrix(get.adjacency(Q4_5)), 'pescarte_questao4_5.net')
-savenetwork(as.matrix(get.adjacency(Q4_simples)), 'pescarte_questao4_simples.net')
+#savenetwork(as.matrix(get.adjacency(Q1)), 'pescarte_questao1.net')
+#savenetwork(as.matrix(get.adjacency(Q2)), 'pescarte_questao2.net')
+#savenetwork(as.matrix(get.adjacency(Q3)), 'pescarte_questao3.net')
+#savenetwork(as.matrix(get.adjacency(Q4_1)), 'pescarte_questao4_1.net')
+#savenetwork(as.matrix(get.adjacency(Q4_2)), 'pescarte_questao4_2.net')
+#savenetwork(as.matrix(get.adjacency(Q4_3)), 'pescarte_questao4_3.net')
+#savenetwork(as.matrix(get.adjacency(Q4_4)), 'pescarte_questao4_4.net')
+#savenetwork(as.matrix(get.adjacency(Q4_5)), 'pescarte_questao4_5.net')
+#savenetwork(as.matrix(get.adjacency(Q4_simples)), 'pescarte_questao4_simples.net')
+
+write_graph(Q1, 'questao1.net', format = 'pajek')
+write_graph(Q2, 'questao2.net', format = 'pajek')
+write_graph(Q3, 'questao3.net', format = 'pajek')
+write_graph(Q4_1, 'questao4_1.net', format = 'pajek')
+write_graph(Q4_2, 'questao4_2.net', format = 'pajek')
+write_graph(Q4_3, 'questao4_3.net', format = 'pajek')
+write_graph(Q4_4, 'questao4_4.net', format = 'pajek')
+write_graph(Q4_5, 'questao4_5.net', format = 'pajek')
+write_graph(Q4_simples, 'questao4_simples.net', format = 'pajek')
 
 #write_csv(as.data.frame(as.matrix(get.adjacency(Q1))), 'pescarte_questao1.csv')
 #write_csv(as.matrix(get.adjacency(Q2)), 'pescarte_questao2.csv')
