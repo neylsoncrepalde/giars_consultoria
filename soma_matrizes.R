@@ -68,7 +68,7 @@ peso
 E(Q1)$weight = peso
 
 # Confere a matriz de adjacência com pesos
-View(as.matrix(get.adjacency(Q1, attr = 'weight')))
+#View(as.matrix(get.adjacency(Q1, attr = 'weight')))
 
 #---------------------------
 # Soma questão 2 manhã e tarde
@@ -86,7 +86,7 @@ peso
 E(Q2)$weight = peso
 
 # Confere a matriz de adjacência com pesos
-View(as.matrix(get.adjacency(Q2, attr = 'weight')))
+#View(as.matrix(get.adjacency(Q2, attr = 'weight')))
 
 #----------------------
 Q3 = l[[3]] %u% l[[12]]
@@ -101,7 +101,7 @@ peso
 E(Q3)$weight = peso
 
 # Confere a matriz de adjacência com pesos
-View(as.matrix(get.adjacency(Q3, attr = 'weight')))
+#View(as.matrix(get.adjacency(Q3, attr = 'weight')))
 
 #--------------------------------
 Q4_1 = l[[4]] %u% l[[13]]
@@ -116,7 +116,7 @@ peso
 E(Q4_1)$weight = peso
 
 # Confere a matriz de adjacência com pesos
-View(as.matrix(get.adjacency(Q4_1, attr = 'weight')))
+#View(as.matrix(get.adjacency(Q4_1, attr = 'weight')))
 
 #--------------------------------
 Q4_2 = l[[5]] %u% l[[14]]
@@ -131,7 +131,7 @@ peso
 E(Q4_2)$weight = peso
 
 # Confere a matriz de adjacência com pesos
-View(as.matrix(get.adjacency(Q4_2, attr = 'weight')))
+#View(as.matrix(get.adjacency(Q4_2, attr = 'weight')))
 
 #--------------------------------
 Q4_3 = l[[6]] %u% l[[15]]
@@ -146,7 +146,7 @@ peso
 E(Q4_3)$weight = peso
 
 # Confere a matriz de adjacência com pesos
-View(as.matrix(get.adjacency(Q4_3, attr = 'weight')))
+#View(as.matrix(get.adjacency(Q4_3, attr = 'weight')))
 
 #--------------------------------
 Q4_4 = l[[7]] %u% l[[16]]
@@ -161,7 +161,7 @@ peso
 E(Q4_4)$weight = peso
 
 # Confere a matriz de adjacência com pesos
-View(as.matrix(get.adjacency(Q4_4, attr = 'weight')))
+#View(as.matrix(get.adjacency(Q4_4, attr = 'weight')))
 
 #---------------------------------------------
 Q4_5 = l[[8]] %u% l[[17]]
@@ -176,7 +176,7 @@ peso
 E(Q4_5)$weight = peso
 
 # Confere a matriz de adjacência com pesos
-View(as.matrix(get.adjacency(Q4_5, attr = 'weight')))
+#View(as.matrix(get.adjacency(Q4_5, attr = 'weight')))
 
 #-------------------------------------
 Q4_simples = l[[9]] %u% l[[18]]
@@ -191,9 +191,10 @@ peso
 E(Q4_simples)$weight = peso
 
 # Confere a matriz de adjacência com pesos
-View(as.matrix(get.adjacency(Q4_simples, attr = 'weight')))
+#View(as.matrix(get.adjacency(Q4_simples, attr = 'weight')))
 
 # Exporta matrizes
+# Para rodar, descomente as linhas
 #savenetwork(as.matrix(get.adjacency(Q1)), 'pescarte_questao1.net')
 #savenetwork(as.matrix(get.adjacency(Q2)), 'pescarte_questao2.net')
 #savenetwork(as.matrix(get.adjacency(Q3)), 'pescarte_questao3.net')
@@ -204,15 +205,17 @@ View(as.matrix(get.adjacency(Q4_simples, attr = 'weight')))
 #savenetwork(as.matrix(get.adjacency(Q4_5)), 'pescarte_questao4_5.net')
 #savenetwork(as.matrix(get.adjacency(Q4_simples)), 'pescarte_questao4_simples.net')
 
-write_graph(Q1, 'questao1.net', format = 'pajek')
-write_graph(Q2, 'questao2.net', format = 'pajek')
-write_graph(Q3, 'questao3.net', format = 'pajek')
-write_graph(Q4_1, 'questao4_1.net', format = 'pajek')
-write_graph(Q4_2, 'questao4_2.net', format = 'pajek')
-write_graph(Q4_3, 'questao4_3.net', format = 'pajek')
-write_graph(Q4_4, 'questao4_4.net', format = 'pajek')
-write_graph(Q4_5, 'questao4_5.net', format = 'pajek')
-write_graph(Q4_simples, 'questao4_simples.net', format = 'pajek')
+# Expota valorado
+# Para rodar, descomente as linhas
+#write_graph(Q1, 'questao1.net', format = 'pajek')
+#write_graph(Q2, 'questao2.net', format = 'pajek')
+#write_graph(Q3, 'questao3.net', format = 'pajek')
+#write_graph(Q4_1, 'questao4_1.net', format = 'pajek')
+#write_graph(Q4_2, 'questao4_2.net', format = 'pajek')
+#write_graph(Q4_3, 'questao4_3.net', format = 'pajek')
+#write_graph(Q4_4, 'questao4_4.net', format = 'pajek')
+#write_graph(Q4_5, 'questao4_5.net', format = 'pajek')
+#write_graph(Q4_simples, 'questao4_simples.net', format = 'pajek')
 
 #write_csv(as.data.frame(as.matrix(get.adjacency(Q1))), 'pescarte_questao1.csv')
 #write_csv(as.matrix(get.adjacency(Q2)), 'pescarte_questao2.csv')
