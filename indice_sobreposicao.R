@@ -6,6 +6,9 @@
 #######################################
 
 source('soma_matrizes.R')
+if (!'writexl' %in% installed.packages()) install.packages('writexl')
+
+library(writexl)
 
 # Extraindo as matrizes binárias das questões de 1 a 4
 M4_1 = as.matrix(get.adjacency(Q4_1))
@@ -75,6 +78,16 @@ d43 = graph.density(Q4_3)
 d44 = graph.density(Q4_4)
 d45 = graph.density(Q4_5)
 
+index_por_densidade = c(d41/d42, d41/d43, d42/d43, d44/d43, d45/d43, d45/d44)
 
+###############################################
+# Montando o banco com os índices calculados
 
+ind = data.frame(por_matriz = index_por_matriz, por_densidade = index_por_densidade)
+ind = t(ind)
+colnames(ind) = nomes
+ind = as.data.frame(ind)
+ind
+
+#write_xlsx(ind, 'indice_sobreposicao.xlsx')
 
