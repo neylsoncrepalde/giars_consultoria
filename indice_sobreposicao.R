@@ -27,4 +27,8 @@ which(M4_5 > 1) # matriz binária
 #----------------------------------
 # Somando as duas primeiras matrizes
 
+um_dois = M4_1 + M4_2
+lacos_total = length(which(um_dois > 0))
+lacos_sobrepostos = length(which(um_dois > 1))
+indice_sobreposicao = lacos_sobrepostos / lacos_total
 
