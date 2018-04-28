@@ -492,6 +492,58 @@ savenetwork(TQ45R11, 'pescarte_questao45_tarde_respondente11.net')
 #### Calcula o índice geral de sobreposição
 ################################################
 
+# Método 1 - Soma dos laços sobre a quantidade total de laços percebidos
+g1r1 =  graph_from_adjacency_matrix(Q1R1, mode = 'undirected')
+g1r2 =  graph_from_adjacency_matrix(Q1R2, mode = 'undirected')
+g1r3 =  graph_from_adjacency_matrix(Q1R3, mode = 'undirected')
+g1r4 =  graph_from_adjacency_matrix(Q1R4, mode = 'undirected')
+g1r5 =  graph_from_adjacency_matrix(Q1R5, mode = 'undirected')
+g1r6 =  graph_from_adjacency_matrix(Q1R6, mode = 'undirected')
+g1r7 =  graph_from_adjacency_matrix(Q1R7, mode = 'undirected')
+g1r8 =  graph_from_adjacency_matrix(Q1R8, mode = 'undirected')
+g1r9 =  graph_from_adjacency_matrix(Q1R9, mode = 'undirected')
+g1r10 = graph_from_adjacency_matrix(Q1R10, mode = 'undirected')
+g1r11 = graph_from_adjacency_matrix(Q1R11, mode = 'undirected')
+g1r12 = graph_from_adjacency_matrix(Q1R12, mode = 'undirected')
+
+lista_manha_q1 = list(as.matrix(get.adjacency(g1r1)),
+                      as.matrix(get.adjacency(g1r2)),
+                      as.matrix(get.adjacency(g1r3)),
+                      as.matrix(get.adjacency(g1r4)),
+                      as.matrix(get.adjacency(g1r5)),
+                      as.matrix(get.adjacency(g1r6)),
+                      as.matrix(get.adjacency(g1r7)),
+                      as.matrix(get.adjacency(g1r8)),
+                      as.matrix(get.adjacency(g1r9)),
+                      as.matrix(get.adjacency(g1r10)),
+                      as.matrix(get.adjacency(g1r11)),
+                      as.matrix(get.adjacency(g1r12))
+)
+
+Q1_total = as.matrix(get.adjacency(g1r1))+
+           as.matrix(get.adjacency(g1r2))+
+           as.matrix(get.adjacency(g1r3))+
+           as.matrix(get.adjacency(g1r4))+
+           as.matrix(get.adjacency(g1r5))+
+           as.matrix(get.adjacency(g1r6))+
+           as.matrix(get.adjacency(g1r7))+
+           as.matrix(get.adjacency(g1r8))+
+           as.matrix(get.adjacency(g1r9))+
+           as.matrix(get.adjacency(g1r10))+
+           as.matrix(get.adjacency(g1r11))+
+           as.matrix(get.adjacency(g1r12))
+
+lacos = sapply(lista_manha_q1, sum)
+total_de_lacos = sum(lacos)
+
+lacos_sobrepostos = Q1_total[Q1_total > 1]
+indice_sobreposicao = sum(lacos_sobrepostos) / total_de_lacos
+
+
+# Método 2 - pela densidade
+g1_agregada = graph_from_adjacency_matrix(Q1_total, mode = 'undirected', weighted = T)
+edge_density(g1_agregada)
+#mean(lacos_sobrepostos) / (nrow(Q1_total)-1)
 
 
 
